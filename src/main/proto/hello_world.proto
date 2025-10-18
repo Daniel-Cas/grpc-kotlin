@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package hello;
+
+service HelloWorldService {
+  rpc SayHello(HelloRequest) returns (HelloResponse);
+
+  rpc SayHelloTo(HelloToRequest) returns (HelloResponse);
+
+  rpc SayHelloStream(HelloRequest) returns (stream HelloResponse);
+}
+
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloToRequest {
+  string name = 1;
+  string title = 2;
+  int32 age = 3;
+  string language = 4;
+}
+
+message HelloResponse {
+  string message = 1;
+  int64 timestamp = 2;
+  string server_id = 3;
+}
